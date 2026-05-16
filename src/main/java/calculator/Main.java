@@ -5,12 +5,21 @@ import javax.swing.*;
 /** Starter for our Calculator. */
 public class Main {
 
-    /**
-     * Create a new Calculator.
-     *
-     * @param args command line parameters, not used
-     */
     public static void main(String... args) {
+        // Der neue Code MUSS vor der schließenden Klammer der main-Methode stehen
+
+
         SwingUtilities.invokeLater(Calculator::new);
+
     }
+
 }
+
+
+
+
+
+
+
+
+
