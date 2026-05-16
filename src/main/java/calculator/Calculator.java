@@ -46,7 +46,7 @@ public class Calculator extends JFrame {
         // TODO
         // Add a new operation "Sub" for the subtraction of two integers as an (instance of a) Java
         // class (you have yet to write this class)
-
+        operations.put("Sub", new Sub());
         // TODO
         // Add a new operation "Mul" for the multiplication of two integers as an anonymous class
      Operation Mul = new Operation() {
@@ -55,25 +55,22 @@ public class Calculator extends JFrame {
              return a * b;
          }
      };
+        operations.put("Mul", Mul);
         // TODO
         // Add a new operation "Div" for the division of two integers as a lambda expression
-
+        operations.put("Div", (a, b) -> a / b);
         operationSelector = new JComboBox<>();
         operations.forEach((key, value) -> operationSelector.addItem(key));
 
         // TODO
         // Replace the anonymous class with a lambda expression
-        operationSelector.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        try {
-                            result.setText("" + calculate());
-                        } catch (NumberFormatException ex) {
-                            System.out.println("Invalid input.");
-                        }
-                    }
-                });
+        operationSelector.addActionListener(e -> {
+            try {
+                result.setText("" + calculate());
+            } catch (NumberFormatException ex) {
+                System.out.println("Invalid input.");
+            }
+        });
     }
 
     /**
